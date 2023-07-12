@@ -1,5 +1,5 @@
 defmodule Rockelivery.Users.Create do
-  alias Rockelivery.{User, Repo}
+  alias Rockelivery.{Error, User, Repo}
 
   def call(params) do
     params
@@ -13,6 +13,6 @@ defmodule Rockelivery.Users.Create do
   end
 
   defp handle_insert({:error, result}) do
-    {:error, %{status: :bad_request, result: result}}
+    {:error, Error.build(:bad_request, result)}
   end
 end
