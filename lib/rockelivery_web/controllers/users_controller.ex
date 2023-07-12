@@ -12,6 +12,14 @@ defmodule RockeliveryWeb.UsersController do
       |> render("create.json", user: user)
     end
   end
+
+  def show(conn, %{"id" => id}) do
+    with {:ok, %User{} = user} <- Rockelivery.get_user_by_id(id) do
+      conn
+      |> put_status(:ok)
+      |> render("show.json", user: user)
+    end
+  end
 end
 
 # we let's don't use 'put_view' because the name of 'user_controller' is equal the name of file 'user_view'
