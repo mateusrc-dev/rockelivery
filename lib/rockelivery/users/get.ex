@@ -2,7 +2,7 @@ defmodule Rockelivery.Users.Get do
   alias Rockelivery.{User, Repo}
   alias Ecto.UUID
 
-  def by_id2(id) do
+  def by_id_2(id) do
     with {:ok, uuid} <- UUID.cast(id),
          %User{} = user <- Repo.get(User, uuid) do
       {:ok, user}
