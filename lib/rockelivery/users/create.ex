@@ -1,13 +1,12 @@
 defmodule Rockelivery.Users.Create do
   alias Rockelivery.{Error, User, Repo}
-  alias Rockelivery.ViaCep.Client
 
   def call(params) do
     cep = Map.get(params, "cep")
     changeset = User.changeset(params)
 
     with {:ok, %User{}} <- User.build(changeset),
-         {:ok, _cep_info} <- Client.get_cep_info(cep),
+         {:ok, _cep_info} <- client().get_cep_info(cep),
          {:ok, %User{}} = user <- Repo.insert(changeset) do
       user
       # Repo.insert(user)
@@ -21,5 +20,11 @@ defmodule Rockelivery.Users.Create do
 
         # if this error is not handled here it will be returned to the fallback module
     end
+  end
+
+  defp client do
+    :rockelivery
+    |> Application.fetch_env!(__MODULE__)
+    |> Keyword.get(:via_cep_adapter)
   end
 end

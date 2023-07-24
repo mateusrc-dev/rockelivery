@@ -26,4 +26,19 @@ defmodule Rockelivery.Factory do
       id: "00c0fb92-6198-4fc6-b9e7-1e581ec7ca75"
     }
   end
+
+  def cep_info_factory do
+    %{
+      "bairro" => "Sé",
+      "cep" => "01001-000",
+      "complemento" => "lado ímpar",
+      "ddd" => "11",
+      "gia" => "1004",
+      "ibge" => "3550308",
+      "localidade" => "São Paulo",
+      "logradouro" => "Praça da Sé",
+      "siafi" => "7107",
+      "uf" => "SP"
+    }
+  end
 end

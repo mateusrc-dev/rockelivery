@@ -3,12 +3,19 @@ defmodule Rockelivery.Users.CreateTest do
   alias Rockelivery.{Error, User}
   alias Rockelivery.Users.Create
   alias Rockelivery.Error
+  alias Rockelivery.ViaCep.BehaviourMock
 
+  import Mox
   import Rockelivery.Factory
 
   describe "call/1" do
     test "when all params are valid, returns the user" do
       params = build(:user_params)
+
+      # expect that a called for the ClientMock will be execute
+      expect(BehaviourMock, :get_cep_info, fn _cep ->
+        {:ok, build(:cep_info)}
+      end)
 
       response = Create.call(params)
 

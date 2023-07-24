@@ -1,7 +1,9 @@
 defmodule RockeliveryWeb.UsersControllerTest do
   use RockeliveryWeb.ConnCase, async: true
   alias Rockelivery.User
+  alias Rockelivery.ViaCep.BehaviourMock
   import Rockelivery.Factory
+  import Mox
 
   describe "create/2" do
     test "when all params are valid, creates the user", %{conn: conn} do
@@ -14,6 +16,10 @@ defmodule RockeliveryWeb.UsersControllerTest do
         "password" => "123456",
         "name" => "Mateus"
       }
+
+      expect(BehaviourMock, :get_cep_info, fn _cep ->
+        {:ok, build(:cep_info)}
+      end)
 
       response =
         conn
