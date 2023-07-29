@@ -69,12 +69,12 @@
           #
           ## Consistency Checks
           #
-          {Credo.Check.Consistency.ExceptionNames, []},
-          {Credo.Check.Consistency.LineEndings, []},
-          {Credo.Check.Consistency.ParameterPatternMatching, []},
-          {Credo.Check.Consistency.SpaceAroundOperators, []},
-          {Credo.Check.Consistency.SpaceInParentheses, []},
-          {Credo.Check.Consistency.TabsOrSpaces, []},
+          {Credo.Check.Consistency.ExceptionNames, false},
+          {Credo.Check.Consistency.LineEndings, false},
+          {Credo.Check.Consistency.ParameterPatternMatching, false},
+          {Credo.Check.Consistency.SpaceAroundOperators, false},
+          {Credo.Check.Consistency.SpaceInParentheses, false},
+          {Credo.Check.Consistency.TabsOrSpaces, false},
 
           #
           ## Design Checks
