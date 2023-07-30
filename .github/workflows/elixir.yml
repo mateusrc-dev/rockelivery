@@ -79,7 +79,7 @@ jobs:
           ref: main # Check out main instead of the latest commit
           fetch-depth: 0 # Checkout the whole branch
 
-      - uses: actions/setup-python@v2
+      - uses: actions/setup-python@v3
         with:
           python-version: "3.8.1"
 
