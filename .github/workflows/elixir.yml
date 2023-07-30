@@ -79,9 +79,9 @@ jobs:
           ref: main # Check out main instead of the latest commit
           fetch-depth: 0 # Checkout the whole branch
 
-      - uses: actions/setup-python@v2
+      - uses: actions/setup-python@v3
         with:
-          python-version: ["3.8", "3.9", "3.10", "3.11.0-beta.3"]
+          python-version: 3.8.1
 
       - uses: mhanberg/gigalixir-action@v0.4.0
         with:
