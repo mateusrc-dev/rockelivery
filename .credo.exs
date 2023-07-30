@@ -34,8 +34,7 @@
         excluded: [
           ~r"/_build/",
           ~r"/deps/",
-          ~r"/node_modules/",
-          "lib/rockelivery_web/auth/guardian.ex"
+          ~r"/node_modules/"
         ]
       },
       #
