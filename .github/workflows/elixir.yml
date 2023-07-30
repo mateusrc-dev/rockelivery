@@ -48,9 +48,6 @@ jobs:
       - name: Check Formatting
         run: mix format --check-formatted
 
-      - name: Run Credo
-        run: mix credo
-
       - name: Check coverage
         run: mix coveralls.json
         env:
