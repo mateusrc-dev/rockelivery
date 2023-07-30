@@ -71,7 +71,7 @@ jobs:
     needs: build # Will only run if the test job succeeds
     if: github.ref == 'refs/heads/main' # Only run this job if it is on the main branch
 
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-14.04.6
 
     steps:
       - uses: actions/checkout@v2
